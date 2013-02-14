@@ -32,7 +32,7 @@
             $(this).attr('data-csh', 'cshi-'+cshi);
 
             // add the class and id for the cufon-hover object
-            a.addClass('csh').attr('id', 'cshi-'+cshi).insertAfter($(this));
+            a.css('position', 'absolute').addClass('csh').attr('id', 'cshi-'+cshi).insertAfter($(this));
             
             // some elements may not actually by cufon (e.g. icons), hide them
             a.children(':not(cufon)').css('visibility', 'hidden');
@@ -41,7 +41,7 @@
             Cufon.replace('#cshi-'+cshi);
             
             // hide the hover-cufon at the start
-            a.offset($(this).parent().offset()).find('cufon').css('opacity', 0);
+            a.find('cufon').css('opacity', 0);
 
             // show the hover-cufon on hover & hide the normal one on hover
             // only use opacity to animate since display: none will invalidate the hover event
@@ -51,6 +51,16 @@
             }, function() {
                 $(this).find('cufon').stop().animate({opacity: 0}, params.speed);
                 $('[data-csh="'+$(this).attr('id')+'"]').find('cufon').stop().animate({opacity: 1}, params.speed);
+            });
+            
+            // replace the hover effect's position everytime
+            $(this).hover(function() {
+                // top is supposed to be auto, but for some reason, floating containers bug it out.
+                var top = 'auto'
+                if ($(this).parent().css('float') != 'none') {
+                    top = '0';
+                }    
+                $('#'+$(this).attr('data-csh')).css({'left': $(this).position().left, 'top': top});
             });
         });
     };

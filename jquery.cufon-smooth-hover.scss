@@ -2,6 +2,8 @@ a.csh {
     // Add your hover color here:
     // color: royalblue
     position: absolute;
+    @include transition-property(none);
+    @include transition-duration(0);
     cufon {
         @include opacity(0);
     }
