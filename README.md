@@ -17,7 +17,7 @@ Usage
 <script type="text/javascript" src="jquery.cufon-smooth-hover.min.js"></script>
 ```
 
-#####2. Write your Cufon anchor links properly:
+#####2. Write your Cufon anchor links properly (`a` inside `headers`):
 
 ```html
 <h3>Hello <a href='#'>World</a></h3>
