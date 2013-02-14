@@ -1,0 +1,9 @@
+a.csh {
+  position: absolute; }
+  a.csh cufon {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0; }
+  a.csh:before, a.csh:after {
+    visibility: hidden !important; }
+
+/* Add your hover color styles to a.csh */

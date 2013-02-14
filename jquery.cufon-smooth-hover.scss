@@ -1,0 +1,11 @@
+a.csh {
+    // Add your hover color here:
+    // color: royalblue
+    position: absolute;
+    cufon {
+        @include opacity(0);
+    }
+    &:before, &:after {
+        visibility: hidden !important;
+    }
+}
