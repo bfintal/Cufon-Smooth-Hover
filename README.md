@@ -1,7 +1,7 @@
 Cufon-Smooth-Hover
 ==================
 
-I like Cufon, it enables us to put custom smooth and thin fonts (against the thicker Google Web Font API) in webpages. However, a huge drawback in styling (for me) is that Cufon is not capable of smooth hover transitions. It CAN change colors when a link was hovered, but with absolutely no transition.
+I like Cufon, it enables us to put custom smooth and thin fonts in webpages (against the thicker Google Web Font API). However, a huge drawback in styling (for me) is that Cufon is not capable of smooth hover transitions. It CAN change colors when a link was hovered, but with absolutely no transition.
 
 Cufon Smooth Hover enables a smooth hover color transition on Cufonized elements.
 
