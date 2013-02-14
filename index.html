@@ -7,55 +7,108 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/jquery-cufon-smooth-hover.css" media="print" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/cufon/1.09i/cufon-yui.js"></script>
+    <script src="http://cdn.jsdelivr.net/cufon-fonts-library/0.1/sansation.font.js"></script>
+    <script src="javascripts/jquery-cufon-smooth-hover.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Cufon Smooth Hover by bfintal</title>
+    <title>Cufon Smooth Hover DEMO</title>
+        <style>
+        .smooth a.csh {
+            color: royalblue;
+        }
+        h4 {
+            font-size: 30px;
+            text-align: center;
+            background: #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 5px solid white;
+        }
+        .original a.csh,
+        .hover a.csh {
+            display: none !important;
+        }
+        section section {
+            margin: 20px 0;
+        }
+        .inner {
+            width: 800px;
+        }
+        h2 {
+            color: #d5000d;
+        }
+    </style>
+    <script>
+        jQuery(document).ready(function($){
+            Cufon.replace('h4.original');
+            Cufon.replace('h4.hover', { hover: { color: 'royalblue' } } );
+            Cufon.replace('h4.smooth');
+            $.cufonHover({speed: 800});
+        });
+    </script>
   </head>
 
   <body>
+      
+      <a href="https://github.com/bfintal/Cufon-Smooth-Hover">
+                  <img src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on Github" style="position: absolute; top: 0px; left: 0px; border: 0px;">
+              </a>
+              
     <div id="container">
       <div class="inner">
 
         <header>
-          <h1>Cufon Smooth Hover</h1>
+          <h1>Cufon Smooth Hover DEMO</h1>
           <h2>Enables a smooth hover color transition on Cufonized elements</h2>
         </header>
 
         <section id="downloads" class="clearfix">
           <a href="https://github.com/bfintal/Cufon-Smooth-Hover/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
           <a href="https://github.com/bfintal/Cufon-Smooth-Hover/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/bfintal/Cufon-Smooth-Hover" id="view-on-github" class="button"><span>View on GitHub</span></a>
+
+            <iframe src="http://ghbtns.com/github-btn.html?user=bfintal&repo=Cufon-Smooth-Hover&type=fork&size=large&count=true"
+              allowtransparency="true" frameborder="0" scrolling="0" width="150" height="40" style="float: right; padding-top: 9px;"></iframe>
+              <iframe src="http://ghbtns.com/github-btn.html?user=bfintal&repo=Cufon-Smooth-Hover&type=watch&size=large&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="150" height="40" style="float: right; padding-top: 9px;"></iframe>
         </section>
 
         <hr>
 
         <section id="main_content">
-          <h3>Original</h3>
+                <section>
+                <h2>Cufon Smooth Hover</h2>
+                <p><em>The text "hover me" is a link, and transitions smoothly when hovered on.</em></p>
+                <h4 class='smooth'><a href="#">Hover over me</a>. Not me
+                </h4>
 
-<h3>Original method. <a href="#">Hover over me</a>
-</h3>
+<pre><code><span style='color: gray'>// html</span>
+&lt;h4>&lt;a href="#">Hover over me&lt;/a>. Not me&lt;/h4></code></pre>
+<pre><code></code><span style='color: gray'>// css</span>
+a.csh { color: royalblue; }</pre>
+                <pre><code><span style='color: gray'>// js</span>
+Cufon.replace( 'h3' );
+$.cufonHover({speed: 800});
+</code></pre>
+                </section>
+<hr>
+<section>
+<h2>Original method of applying hover</h2>
+<p><em>The text "hover me" is a link, but changes colors abruptly.</em></p>
+<h4 class='hover'><a href="#">Hover over me</a>. Not me
+</h4>
 
-<pre><code>Cufon.replace( 'h3' );
+<pre><code><span style='color: gray'>// html</span>
+&lt;h4>&lt;a href="#">Hover over me&lt;/a>. Not me&lt;/h4></code></pre>
+<pre><code><span style='color: gray'>// js</span>
+Cufon.replace( 'h3', { hover: { color: 'royalblue' } } );
 </code></pre>
 
-<h3>Original method of applying hover</h3>
-
-<h3>Original method. <a href="#">Hover over me</a>
-</h3>
-
-<pre><code>Cufon.replace( 'h3', { hover: { color: '#999999' } } );
-</code></pre>
-
-<h3>Cufon Smooth Hover</h3>
-
-<h3>Cufon Smooth Hover. <a href="#">Hover over me</a>
-</h3>
-
-<pre><code>Cufon.replace( 'h3' );
-$.cufonHover();
-</code></pre>
-        </section>
+</section>
+</section>
 
         <footer>
           Cufon Smooth Hover is maintained by <a href="https://github.com/bfintal">bfintal</a><br>
