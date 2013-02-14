@@ -7,6 +7,13 @@ Cufon Smooth Hover enables a smooth hover color transition on Cufonized elements
 
 <hr>
 
+Demo
+====
+
+See it in action: http://bfintal.github.com/Cufon-Smooth-Hover/
+
+<hr>
+
 Usage
 =====
 
