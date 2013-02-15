@@ -2,8 +2,8 @@
  * Cufon Smooth Hover Plugin https://github.com/bfintal/Cufon-Smooth-Hover
  * Applies a smooth hover color transition on Cufonized elements
  * 
- * Version 1.0
- * Updated 02/14/2013
+ * Version 1.0.1
+ * Updated 02/15/2013
  *
  * Copyright 2013, Benjamin Intal / Gambit Technologies - http://gambit.ph
  * Released under the GPLv3 license
@@ -11,7 +11,7 @@
  * Usage: $.cufonHover([parameters]);
  * 
  */
-(function($) {
+(function($) {    
     $.cufonHover = function(params) {
         // Wait until Cufon is ready
         // also, in some cases while styles haven't been applied, we get weird
@@ -46,8 +46,17 @@
             // show the hover-cufon on hover & hide the normal one on hover
             // only use opacity to animate since display: none will invalidate the hover event
             $('#cshi-'+cshi).hover(function() {
-                $('[data-csh="'+$(this).attr('id')+'"]').find('cufon').stop().animate({opacity: 0}, params.speed);
+                var orig = $('[data-csh="'+$(this).attr('id')+'"]');
+                orig.find('cufon').stop().animate({opacity: 0}, params.speed);
                 $(this).find('cufon').stop().animate({opacity: 1}, params.speed);
+                
+                // fix the position of the hover effect since sometimes it
+                // becomes displaced during the first hover
+                var top = 'auto'
+                if (orig.parent().css('float') != 'none') {
+                    top = '0';
+                }    
+                $(this).css({'left': orig.position().left, 'top': top});
             }, function() {
                 $(this).find('cufon').stop().animate({opacity: 0}, params.speed);
                 $('[data-csh="'+$(this).attr('id')+'"]').find('cufon').stop().animate({opacity: 1}, params.speed);
