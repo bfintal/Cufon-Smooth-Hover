@@ -11,7 +11,7 @@
  * Usage: $.cufonHover([parameters]);
  * 
  */
-(function($) {
+(function($) {    
     $.cufonHover = function(params) {
         // Wait until Cufon is ready
         // also, in some cases while styles haven't been applied, we get weird
@@ -46,9 +46,17 @@
             // show the hover-cufon on hover & hide the normal one on hover
             // only use opacity to animate since display: none will invalidate the hover event
             $('#cshi-'+cshi).hover(function() {
-                console.log(params.speed);
-                $('[data-csh="'+$(this).attr('id')+'"]').find('cufon').stop().animate({opacity: 0}, params.speed);
+                var orig = $('[data-csh="'+$(this).attr('id')+'"]');
+                orig.find('cufon').stop().animate({opacity: 0}, params.speed);
                 $(this).find('cufon').stop().animate({opacity: 1}, params.speed);
+                
+                // fix the position of the hover effect since sometimes it
+                // becomes displaced during the first hover
+                var top = 'auto'
+                if (orig.parent().css('float') != 'none') {
+                    top = '0';
+                }    
+                $(this).css({'left': orig.position().left, 'top': top});
             }, function() {
                 $(this).find('cufon').stop().animate({opacity: 0}, params.speed);
                 $('[data-csh="'+$(this).attr('id')+'"]').find('cufon').stop().animate({opacity: 1}, params.speed);
